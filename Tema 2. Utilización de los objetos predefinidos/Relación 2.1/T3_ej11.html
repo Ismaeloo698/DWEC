@@ -1,0 +1,38 @@
+<!--Programa que pida una cadena de texto y la devuelva al revés-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_ej11</title>
+</head>
+
+<body>
+    <label for="frase">Frase: </label>
+    <input type="text" name="frase" id="frase">
+    <button type="button" onclick="invertirCadena()">Invertir frase</button>
+
+    <p id="fraseInvertida"></p>
+    
+    <script>
+        function invertirCadena() {
+            let frase = document.getElementById('frase').value;
+            
+            if(frase === "") {
+                alert("No puedes dejar la frase vacía");
+            }
+
+            var separarCadena = frase.split(""); //h-o-l-a
+
+            var invertirCadena = separarCadena.reverse(); //a-l-o-h
+
+            var unirCadena = invertirCadena.join(""); //aloh
+            
+            document.getElementById('fraseInvertida').innerHTML = unirCadena;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!--Programa en el que el usuario introduzca una frase y escriba
+cuántas veces aparece la letra a-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_ej8</title>
+</head>
+
+<body>
+    <form>
+        <label for="frase">Frase: </label>
+        <input type="text" name="frase" id="frase">
+
+        <button type="button" onclick="contarLetrasA()">Contar letras A</button>
+        <p id="letrasA"></p>
+    </form>
+
+    <script>
+        function contarLetrasA() {
+            let frase = document.getElementById('frase').value;
+
+            if (frase === "") {
+                alert("ERROR. No puedes dejar la frase vacía");
+                return;
+            }
+
+            let contador = 0;
+            let respuesta;
+
+            for (let i = 0; i < frase.length; i++) {
+                if (frase[i] === 'a' || frase[i] === 'A' || frase[i] === "e" || frase[i] === "E") {
+                    contador++;
+                }
+            }
+
+            respuesta = document.getElementById('letrasA').innerHTML = `La letra a aparece ${contador} veces`;
+        }
+    </script>
+</body>
+
+</html>

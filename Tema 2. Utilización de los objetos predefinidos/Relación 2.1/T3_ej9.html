@@ -1,0 +1,45 @@
+<!--Programa que pida una frase y escriba cuántas de las letras que tiene son vocales-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_ej9</title>
+</head>
+
+<body>
+    <label for="frase">Frase: </label>
+    <input type="text" name="frase" id="frase">
+
+    <button type="button" onclick="contarVocales()">Contar vocales</button>
+    <p id="vocales"></p>
+
+    <script>
+        function contarVocales() {
+            // Cambiado a obtener el valor de 'frase' en vez de 'vocales'
+            let frase = document.getElementById('frase').value;
+
+            if (frase === "") {
+                alert("ERROR. No puedes dejar la frase vacía");
+                return;
+            }
+
+            let contador = 0;
+
+            for (let i = 0; i < frase.length; i++) {
+                if (frase[i] === 'a' || frase[i] === 'A' || frase[i] === 'e' || frase[i] === 'E' ||
+                    frase[i] === 'i' || frase[i] === 'I' || frase[i] === 'o' || frase[i] === 'O' ||
+                    frase[i] === 'u' || frase[i] === 'U') {
+                    contador++;
+                }
+            }
+
+            // Cambiado a usar 'vocales' para mostrar el resultado
+            document.getElementById('vocales').innerHTML = `En la frase aparecen ${contador} vocales`;
+        }
+    </script>
+</body>
+
+</html>

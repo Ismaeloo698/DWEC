@@ -1,0 +1,57 @@
+<!--Programa que pida una frase y escriba cuántas veces aparecen cada una de las vocales-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T2_ej10</title>
+</head>
+
+<body>
+    <label for="frase">Frase: </label>
+    <input type="text" name="frase" id="frase">
+    <button type="button" onclick="contarCadaVocal()">Contar</button>
+    <p id="vocales"></p>
+
+    <script>
+        function contarCadaVocal() {
+            let frase = document.getElementById('frase').value;
+
+            if (frase === "") {
+                alert("ERROR. No puedes dejar la frase vacía");
+                return;
+            }
+
+            //Inicializamos un objeto para contar cada vocal 
+            let contarVocales = {
+                "a": 0,
+                "e": 0,
+                "i": 0,
+                "o": 0,
+                "u": 0
+            };
+
+            //Convertimos la frase a minúscula
+            frase = frase.toLowerCase();
+
+            for (let i = 0; i < frase.length; i++) {
+                if (contarVocales.hasOwnProperty(frase[i])) { //Verifica si frase[i] es una de las propiedades del objeto conteoVocales
+                    contarVocales[frase[i]]++;
+                }
+            }
+
+            document.getElementById('vocales').innerHTML = `
+                En la frase aparecen:<br>
+                Vocal A: ${contarVocales['a']} veces.<br>
+                Vocal E: ${contarVocales['e']} veces.<br>
+                Vocal I: ${contarVocales['i']} veces.<br>
+                Vocal O: ${contarVocales['o']} veces.<br>
+                Vocal U: ${contarVocales['u']} veces. 
+                `;
+        }
+    </script>
+</body>
+
+</html>

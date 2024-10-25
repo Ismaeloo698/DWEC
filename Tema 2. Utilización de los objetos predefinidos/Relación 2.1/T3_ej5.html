@@ -1,0 +1,101 @@
+<!--Programa que pida al usuario que elija una de las siguientes opciones (1-4):
+1. Potencia: se le deberá pedir una base y un exponente.
+2. Raíz: se le pedirá un número (no negativo).
+3. Potencia: se le pedirá un número decimal por pantalla y se mostrará el redondeo al
+entero más próximo, al alza y a la baja.
+4. Trigonometría: se le pedirá que introduzca un ángulo (entre 0º y 360º) y se le mostrarán
+por pantalla los valores trigonométricos del seno, coseno y la tangente.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_ej5</title>
+</head>
+
+<body>
+    <h4>Introduce una opción</h4>
+    <ol>
+        <li>Potencia</li>
+        <li>Raíz</li>
+        <li>Redondeo</li>
+        <li>Trigonometría</li>
+    </ol>
+    <form>
+        <label for="opcion"></label>
+        <input type="text" name="opcion" id="opcion"><br><br>
+
+        <button type="button" onclick="opciones()">Aceptar</button>
+        <button type="reset">Cancelar</button>
+    </form>
+
+    <script>
+        function opciones() {
+            let opcion = document.getElementById('opcion').value;
+
+            switch (opcion) {
+                case "1":
+                    let base = parseFloat(prompt("Introduzca la base:"));
+                    let exponente = parseFloat(prompt("Introduzca el exponente:"));
+                    let potencia = Math.pow(base, exponente);
+
+                    alert(`La potencia de ${base} elevado a ${exponente} es: ${potencia}`);
+                    break;
+
+                case "2":
+                    let num = parseFloat(prompt("Introduzca un número:"));
+                    if (num < 0) {
+                        alert("ERROR, Introduzca un número positivo")
+                    } else {
+                        let raizCuadrada = Math.sqrt(num);
+                        alert(`La raíz de ${num} es: ${raizCuadrada}`);
+                    }
+                    break;
+
+                case "3":
+                    let numDecimal = parseFloat(prompt("Introduzca un número decimal:"));
+                    let redondeo = Math.round(numDecimal);
+                    let redondeoAlza = Math.ceil(numDecimal);
+                    let redondeoBaja = Math.floor(numDecimal);
+
+                    alert(`El redondeo mas próximo a ${numDecimal} es: ${redondeo}. El redondeo a la alza es: ${redondeoAlza} y el redondeo a la baja es: ${redondeoBaja}`);
+                    break;
+
+                case "4":
+                    let anguloGrados = parseFloat(prompt("Introduzca un ángulo (0º-360º):"));
+
+                    //En el caso de que el usuario introduzca un ángulo no válido
+                    if (isNaN(anguloGrados) || anguloGrados < 0 || anguloGrados > 360) {
+                        alert("ERROR, introduzca un ángulo válido entre 0º y 360º");
+                        break;
+                    }
+
+                    //Pasamos el ángulo a radianes
+                    let anguloRadianes = (anguloGrados * Math.PI) / 180;
+
+                    let senoAngulo = Math.sin(anguloRadianes).toFixed(4);//Redondeamos cuatro cifras
+                    let cosenoAngulo = Math.cos(anguloRadianes).toFixed(4);
+                    let tangenteAngulo = Math.tan(anguloRadianes);
+
+                    //Comprobamos si el coseno es casi 0 para ángulos críticos (90º y 270º)
+                    if (Math.abs(cosenoAngulo) < 0.0001) {
+                        tangenteAngulo = "Indefinida";
+                    } else {
+                        tangenteAngulo = tangenteAngulo.toFixed(4);
+                    }
+
+                    alert(`Las razones trigonométricas de ${anguloGrados}º son: Seno: ${senoAngulo}, Coseno: ${cosenoAngulo}, Tangente: ${tangenteAngulo}`);
+                    break;
+
+                default:
+                    alert("OPCIÓN NO VÁLIDA. Por favor introduzca una opción del 1-4");
+                    break;
+            }
+        }    
+    </script>
+</body>
+
+</html>

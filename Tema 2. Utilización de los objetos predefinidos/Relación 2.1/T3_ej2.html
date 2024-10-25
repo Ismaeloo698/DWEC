@@ -1,0 +1,46 @@
+<!--Programa que pida por parámetro tu cumpleaños en este formato YYYY-MM-DD, y muestre usando
+la consola de depuración del navegador todos los años en los que tu cumpleaños cae en domingo, hasta el
+año 2100.-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_ej2</title>
+</head>
+
+<body>
+    <form>
+        <label for="cumple">Fecha de tu cumpleaños:</label><br>
+        <input type="text" name="cumple" id="cumple" placeholder="Ej: 2003-08-20"><br><br>
+        <button type="button" style="background-color: lightblue;" onclick="mostrarDomingosCumpleaños()">Calculador
+            domingos</button>
+    </form>
+    <script>
+        function mostrarDomingosCumpleaños() {
+            const fechaCumple = document.getElementById('cumple').value;
+            //Descomponemos la fecha en año, mes y día usando split('-')
+            const [añoNacimiento, mes, dia] = fechaCumple.split('-').map(Number);
+
+            //Creamos un array para guardar los años
+            let añosDomingo = [];
+
+            for (let año = añoNacimiento; año <= 2100; año++) {
+                //Recorremos los años desde tu año de nacimiento hasta el 2100, se crea una fecha para cada año y se verifica si cae en domingo esa fecha
+                let fecha = new Date(año, mes - 1, dia); //Ten en cuenta que enero empieza por 0.
+                //En el caso de que coincida en domingo guardamos ese año en el array con .push
+                if (fecha.getDay() === 0) {
+                    añosDomingo.push(año);
+                }
+            }
+
+            console.log("Tu cumpleaños cae en domingo en los siguiente años: ");
+            //.join muestra los valores del array en un solo String
+            console.log(añosDomingo.join(', '));
+        }
+    </script>
+</body>
+
+</html>

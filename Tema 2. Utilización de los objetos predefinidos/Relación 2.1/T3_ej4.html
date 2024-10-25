@@ -1,0 +1,47 @@
+<!--Script que pida un nombre y apellidos e indique el tiempo que se tardó en introducir
+los datos.-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_ej4</title>
+</head>
+
+<body>
+    <h3>¿Cuánto tiempo tardas en escribir tu nombre y apellidos?</h3>
+    <form>
+        <label for="nombre-apellidos">Nombre y apellidos: </label><br>
+        <input type="text" name="nombre-apellidos" id="nombre-apellidos" onfocus="startTimer()"><br><br>
+        <button type="button" onclick="endTimer()">Enviar datos</button>
+
+        <p id="tiempoTardado"></p>
+    </form>
+    <script>
+        let startTime;
+        let endTime;
+
+        //Iniciamos el temporizador
+        function startTimer() {
+            startTime = Date.now();
+        }
+
+        //Finalizamos el temporizador
+        function endTimer() {
+            endTime = Date.now();
+            //Calculamos el tiempo tardado
+            let tiempoTotal = (endTime - startTime) / 1000;
+
+            let nombreApellidos = document.getElementById('nombre-apellidos').value;
+            if (nombreApellidos === "") {
+                alert("Por favor, introduzca su nombre y apellidos");
+            } else {
+                document.getElementById('tiempoTardado').innerHTML = `En introducir ${nombreApellidos} has tardado (${tiempoTotal.toFixed(2)}) segundos`; //.toFixed redondea
+            }
+        }
+    </script>
+</body>
+
+</html>

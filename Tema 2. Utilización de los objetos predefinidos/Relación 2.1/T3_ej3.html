@@ -1,0 +1,33 @@
+<!--Programa que muestre la hora actual en formato completo y formato reducido-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_ej3</title>
+</head>
+
+<body>
+    <h4>¿Qué hora es?</h4>
+    <button type="button" style="background-color: lightgoldenrodyellow;" onclick="mostrarHoraActual()">Mostrar hora</button>
+    <script>
+        function mostrarHoraActual() {
+            const horaActual = new Date();
+
+            const horas = String(horaActual.getHours()).padStart(2, '0'); //Dos dígitos y rellenar con 0: 09, 12, 03...
+            const minutos = String(horaActual.getMinutes()).padStart(2, '0');
+            const segundos = String(horaActual.getSeconds()).padStart(2, '0');
+
+            //Formato1. Hora detallada con minutos y segundos
+            const formato1 = `${horas}:${minutos}:${segundos}`;
+            const formato2 = `Son las ${horas}h y ${minutos}m`;
+
+            console.log(formato1);
+            console.log(formato2);
+        }
+    </script>
+</body>
+
+</html>

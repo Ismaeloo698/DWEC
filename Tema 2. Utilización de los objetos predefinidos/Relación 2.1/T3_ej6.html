@@ -1,0 +1,44 @@
+<!--Programa que pida al usuario su nombre y apellido y muestre a través de la consola
+del navegador, la siguiente información-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_ej6</title>
+</head>
+
+<body>
+    <script>
+        let nombreApellidos = prompt("Introduzca su nombre y apellidos");
+
+        //Comprobamos si el usuario ha introducido el nombre y los apellidos
+        if (nombreApellidos) {
+            //Separamos el nombre y los apellidos.
+            let partes = nombreApellidos.trim().split(" ");
+            
+            if (partes.length >= 3) {
+                const nombre = partes[0];
+                const apellido = partes[1];
+                //.slice() coje una parte del array.
+                const apellido2 = partes.slice(2).join(" ")//En el caso de que el segundo apellido tenga espacios
+
+                console.log("Tamaño del nombre completo: " + nombreApellidos.length);
+                console.log("Cadena en mayúsculas: " + nombreApellidos.toUpperCase());
+                console.log("Cadena en minúsculas: " + nombreApellidos.toLowerCase());
+                console.log("Dividimos los nombres y los apellidos:");
+                console.log("Nombre: " + nombre);
+                console.log("Apellido 1: " + apellido);
+                console.log("Apellido 2: " + apellido2);
+            } else {
+                alert("Por favor, ingresa un nombre completo válido")
+            }
+        } else {
+            alert("No se ha ingresado ningún nombre");
+        }
+    </script>
+</body>
+
+</html>

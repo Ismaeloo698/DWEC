@@ -1,0 +1,49 @@
+<!--Programa que muestre el número de días que quedan desde hoy hasta las vacaciones de Navidad
+(19 de diciembre)-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_ej1</title>
+</head>
+
+<body>
+    <h2>Cuenta atrás para las vacaciones de navidad</h2>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularDiasNavidad() {
+            //Obtenemos la fecha de hoy
+            const hoy = new Date();
+
+            //Obtenemos la fecha de las vacaciones
+            const vacacionesNavidad = new Date(hoy.getFullYear(), 11, 19);
+
+            //Si hemos pasado la fecha de vacaciones-> 19 de diciembre, tomamos la del siguiente año
+            if (hoy > vacacionesNavidad) {
+                vacacionesNavidad.setFullYear(vacacionesNavidad.getFullYear() + 1);
+            }
+
+            //Calculamos la diferencia en milisegundos entre las dos fechas
+            const diferenciaTiempo = vacacionesNavidad - hoy;
+
+            //Convertimos la diferencia de milisegundos a días. Math.ceil redondea
+            const diasRestantes = Math.ceil(diferenciaTiempo / (1000*60*60*24));
+
+            return diasRestantes;
+        }
+
+        function mostrarDiasRestantes() {
+            const diasRestantes = calcularDiasNavidad();
+            document.getElementById('resultado').innerHTML = `Faltan ${diasRestantes} días para las vacaciones de navidad`;
+        }
+
+        //Ejecutamos la función para cuando cargue la página
+        window.onload = mostrarDiasRestantes;
+    </script>
+</body>
+
+</html>

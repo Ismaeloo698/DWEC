@@ -1,0 +1,67 @@
+<!--Programa que pida al usuario tres números y que ponga en pantalla cuál es mayor-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3_ej7</title>
+</head>
+
+<body>
+    <form>
+        <label for="num1">Número 1:</label>
+        <input type="number" name="num1" id="num1"><br><br>
+
+        <label for="num2">Número 2:</label>
+        <input type="number" name="num2" id="num2"><br><br>
+
+        <label for="num1">Número 3:</label>
+        <input type="number" name="num3" id="num3"><br><br>
+
+        <button type="button" onclick="compararNumeros()">Comparar</button>
+        <p id="numeroMayor"></p>
+    </form>
+    
+    <script>
+        function compararNumeros() {
+            let numero1 = parseFloat(document.getElementById('num1').value);
+            let numero2 = parseFloat(document.getElementById('num2').value);
+            let numero3 = parseFloat(document.getElementById('num3').value);
+
+            //Verificamos si los campos están vacios
+            if (isNaN(numero1) && isNaN(numero2) && isNaN(numero3)) {
+                alert("Por favor introduzca todos los números");
+                return;
+            }
+
+            //Contemplamos también el caso de que algunos de los números sean iguales
+            let mensaje;
+            if (numero1 === numero2 === numero3) {
+                mensaje = "Todos los números son iguales";
+            } else if (numero1 >= numero2 && numero1 >= numero3) {
+                if (numero1 === numero2 || numero1 === numero3) {
+                    mensaje = `El número mayor es el ${numero1}, pero hay número iguales`;
+                } else {
+                    mensaje = `El número mayor es el ${numero1}`;
+                }
+            } else if (numero1 <= numero2 && numero2 >= numero3) {
+                if (numero1 === numero2 || numero2 === numero3) {
+                    mensaje = `El número mayor es el ${numero2}, pero hay números iguales`;
+                } else {
+                    mensaje = `El número mayor es el ${numero2}`;
+                }
+            } else if (numero1 <= numero3 && numero2 <= numero3) {
+                if (numero3 === numero1 || numero3 === numero2) {
+                    mensaje = `El número mayor es el ${numero3}, pero hay números iguales`;
+                } else {
+                    mensaje = `El número mayor es el ${numero3}`;
+                }
+            }
+            document.getElementById('numeroMayor').innerHTML = mensaje;
+        }
+    </script>
+</body>
+
+</html>
