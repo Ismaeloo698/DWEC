@@ -1,0 +1,38 @@
+<!--Control parental para que no se pueda entrar en una página-->
+<!DOCTYPE html>
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T2_ej7</title>
+
+    <script>
+        function controlParental() {
+            var respuestaPresidente = "Suarez";
+            var respuestaUsuario;
+
+            do {
+                respuestaUsuario = prompt("¿Cuál es el primer apellido del primer presidente de la democracia española?");
+
+                if (respuestaUsuario === null) {
+                    alert("ACCESO DENEGADO. No puedes continuar");
+                    window.close;
+                    return;
+                }
+                //Se repite hasta que el usuario escriba la respuesta correcta
+            } while (respuestaUsuario.trim().toLowerCase() != respuestaPresidente.toLowerCase());
+
+            alert("ACCESO CONCEDIDO");
+
+        }
+    </script>
+</head>
+
+<body onload="controlParental()">
+    <h1>Control de acceso</h1>
+    <p>Bienvenid@</p>
+
+</body>
+
+</html>

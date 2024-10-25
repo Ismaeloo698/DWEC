@@ -1,0 +1,58 @@
+<!--Modificación del ejerc7 para controlar algunos inputs que pueda escribir el usuario-->
+<!DOCTYPE html>
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T2_ej8</title>
+
+    <script>
+        function controlParental2() {
+            var respuestaNombre = "Adolfo";
+            var respuestaApellido = "Suarez";
+            var respuestaUsuario;
+
+            do {
+                respuestaUsuario = prompt("¿Cuál es el primer apellido del primer presidente de la democracia española?");
+                if (respuestaUsuario === null) {
+                    alert("Acceso denegado. No puedes continuar");
+                    window.close;
+                    return;
+                }
+
+                //.split() permite la división de cadenas de texto; en este caso un espacio en blanco
+                var partes = respuestaUsuario.trim().split(" ");
+
+                //partes.length === 1 ->Para una sola palabra es decir o nombre o apellido
+                if (partes.length === 1) {
+                    if (partes[0].toLowerCase() === respuestaNombre.toLowerCase()) {
+                        alert("Te falta el apellido. ¿Cuál fue el primer presidente de la democracia española?");
+                    } else if (partes[0].toLowerCase() === respuestaApellido.toLowerCase()) {
+                        alert("Te falta el nombre. ¿Cuál fue el primer presidente de la democracia española?");
+                    } else {
+                        alert("ERROR. ¿Cuál fue el primer presidente de la democracia española?")
+                    }
+                    //partes.length === 2-> En el caso de que el usuario introduzca el nombre y el apellido.
+                } else if (partes.length === 2) {
+                    if (partes[0].toLowerCase() === respuestaNombre.toLowerCase() && respuestaApellido.toLowerCase()) {
+                        alert("ACCESO CONCEDIDO");
+                        return;
+                    } else {
+                        alert("ERROR. ¿Cuál fue el primer presidente de la democracia española?");
+                    }
+                } else {
+                    alert("ERROR. ¿Cuál fue el primer presidente de la democracia española?");
+                }
+                // True para que se ejecute en bucle.
+            } while (true);
+        } 
+    </script>
+</head>
+
+<body onload="controlParental2()">
+    <h1>Control de acceso</h1>
+    <p>Bienvenid@</p>
+</body>
+
+</html>

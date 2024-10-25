@@ -1,0 +1,33 @@
+<!--Crea un programa en el que muestres el resultado de varias operaciones de comparación
+mediante alert, mostrando el texto exacto de la operación realizada y su resultado.
+-->
+<!DOCTYPE html>
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T2_ej1</title>
+
+    <script>
+        //Todas las operaciones se deben de meter en una funcion en JavaScript
+        function mostrarOperaciones() {
+            alert("La operación 20 == 20 es " + (20 == 20)); //El operador de estricta igualdad siempre considera que los operandos de distinto tipo de valor son diferentes y nunca similares
+            alert("La operación 20===20 es " + (20 === 20)); //Revisa si dos operandos son iguales y produce un Boolean
+            alert("La operación 20 === 20.0 es " + (20 === 20.0));
+            alert('La operación "Juan" == "juan" es ' + ("Juan" == "juan")); //¡Cuidado con las comillas!. Es falso porque las letras mayúsculas tiene menos valor
+            alert('La operación "Juan" > "juan" es ' + ("Juan" > "juan"));
+            alert('La operación "Juan" < "juan" es ' + ("Juan" < "juan"));
+            alert('La operación "123" == 123 es ' + ("123" == 123));
+            alert('La operación "123" === 123 es ' + ("123" === 123));
+            alert('La operación parseInt("123") === 123 es ' + (parseInt("123") === 123)); //parseInt convierte a una cadena de enteros
+        }
+    </script>
+</head>
+
+<!--El evento onload se usa para ejecutar un script una vez que una pagina web se ha cargado correctamente-->
+<body onload="mostrarOperaciones()">
+    <h1>Operaciones de comparación</h1>
+    <p>El resultado de las comparaciones se mostrarán mediante alertas</p>
+</body>
+</html>

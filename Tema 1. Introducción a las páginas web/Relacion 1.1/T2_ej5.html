@@ -1,0 +1,28 @@
+<!--Utiliza el siguiente script en un fichero HTML y comprueba su funcionamiento.
+Posteriormente, cambia la línea countdown— por countdown++ y comprueba de nuevo el
+funcionamiento explicando qué ocurre.-->
+<!DOCTYPE html>
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T2_ej5</title>
+
+    <script>
+        //Variable que se usa para llevar una cuenta regresiva
+        var countdown = prompt("Introduzca un número para iniciar una cuenta atrás")
+        while (countdown > 0) {
+            alert(countdown + "... ");
+            //Al indicarle "countdown--", los números retroceden hacia atrás
+            //Si indicamos lo contrario "countdown++", los números avanzan
+            countdown--;
+            //countdown++;
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

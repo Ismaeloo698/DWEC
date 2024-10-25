@@ -1,0 +1,33 @@
+<!--Utilizando el operador condicional ternario ( ?: ) realiza un programa que pida al usuario
+introducir una edad. Si la edad introducida es mayor o igual que 18, se debe mostrar
+mediante un alert el mensaje eres mayor de edad, en caso contrario se mostrará el mensaje
+eres menor de edad-->
+<!DOCTYPE html>
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T2_ej2</title>
+
+    <script>
+        function pedirEdad() {
+            let edad = prompt("Indica tu edad : ");
+
+            //isNan intenta convertir el parámetro pasado a un número
+            if (isNaN(edad) || edad === "" || edad === null) {
+                alert("ERROR. Introduzca un número válido");
+            } else {
+                //Operador ternario: (condición ? verdadero : falso)
+                let mayorEdad = parseInt(edad)>= 18 ? "Eres mayor de edad" : "Eres menor de edad"
+                alert(mayorEdad);
+            }
+        }
+    </script>
+</head>
+
+<body onload="pedirEdad()">
+    <h1>Mayoría de edad</h1>
+    <p>Indica tu edad cuando se solicite</p>
+</body>
+</html>
