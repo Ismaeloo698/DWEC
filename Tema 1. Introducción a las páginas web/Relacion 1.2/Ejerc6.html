@@ -1,0 +1,41 @@
+<!--Programa para imprimir las tablas de multiplicar-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejerc6</title>
+</head>
+
+<body>
+    <h1>Tablas de Multiplicar</h1>
+    <div id="resultado"></div>
+    
+    <script>
+        function tablasMultiplicar() {
+            let tabla = 1;
+            let multiplicador;
+            let resultadoDiv = document.getElementById('resultado'); 
+
+            while (tabla <= 10) {
+                let tablaTexto = `<h2>Tabla del ${tabla}:</h2>`;
+                multiplicador = 1;
+
+                while (multiplicador <= 10) {
+                    let resultado = tabla * multiplicador;
+                    tablaTexto += `<p>${tabla} x ${multiplicador} = ${resultado}</p>`;
+                    multiplicador++;
+                }
+
+                //Agregamos la tabla completa al div
+                resultadoDiv.innerHTML += tablaTexto;
+                tabla++;
+            }
+        }
+        tablasMultiplicar();
+    </script>
+</body>
+
+</html>

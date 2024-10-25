@@ -1,0 +1,57 @@
+<!--Programa que pida por teclado cuatro valores: el número de columnas y filas
+de una tabla y, la altura y anchura (en pixels) de sus celdas. Una vez tecleados estos
+valores, el programa pintará en la página web una tabla HTML del nº de filas por el nº
+de columnas tecleadas.-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejerc7</title>
+</head>
+
+<body>
+    <form>
+        <label for="filas">Filas:</label>
+        <input type="text" name="filas" id="filas"><br><br>
+
+        <label for="columnas">Columnas:</label>
+        <input type="text" name="columnas" id="columnas"><br><br>
+
+        <label for="alto">Alto::</label>
+        <input type="text" name="alto" id="alto"><br><br>
+
+        <label for="ancho">Ancho:</label>
+        <input type="text" name="ancho" id="ancho"><br><br>
+
+        <button type="button" onclick="generarTabla()">Generar tabla</button>
+    </form>
+
+    <script>
+        function generarTabla() {
+            const numFilas = document.getElementById('filas').value;
+            const numColumnas = document.getElementById('columnas').value;
+            const alto = document.getElementById('alto').value;
+            const ancho = document.getElementById('ancho').value;
+
+            let tabla = '<h1>Tabla generada</h1>';
+            tabla += '<table>';
+            //Número de filas
+            for (let i = 0; i < numFilas; i++) {
+                tabla += '<tr>'
+                //Número de columnas
+                for (let j = 0; j < numColumnas; j++) {
+                    tabla += (`<td style = "height: ${alto}px; width: ${ancho}px; border: 1px solid black"></td>`);
+                }
+                tabla += '</tr>'
+            }
+            tabla += "</table>";
+
+            document.write(tabla);
+        }
+    </script>
+</body>
+
+</html>

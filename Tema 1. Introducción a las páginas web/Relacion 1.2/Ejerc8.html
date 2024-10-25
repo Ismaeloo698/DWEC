@@ -1,0 +1,46 @@
+<!--Programa que pinte un tablero de ajedrez de 8x8 casillas usando dos for
+anidados. El programa pedirá solamente el ancho de la celda que será igual que el alto.-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejerc8</title>
+</head>
+
+<body>
+    <form>
+        <label for="ancho">Ancho:</label>
+        <input type="text" name="ancho" id="ancho"><br><br>
+
+        <button type="button" onclick="generarTabla()">Generar tabla</button>
+    </form>
+
+    <script>
+        function generarTabla() {
+            const ancho = document.getElementById('ancho').value;
+            const numFilas = 8;
+            const numColumnas = 8;
+
+            let tabla = '<h1>Tabla generada</h1>';
+            tabla += '<table>';
+            /*Número de filas*/
+            for (let i = 0; i < numFilas; i++) {
+                tabla += '<tr>';
+                /*Número de columnas*/
+                for (let j = 0; j < numColumnas; j++) {
+                    /*Hay que tener en cuenta que para el color hay que poner las dos constantes*/
+                    const color = (i + j) % 2 == 0 ? 'black' : 'white'; //Si es par se selecciona el negro, si es impar el blanco
+                    tabla += (`<td style= "width: ${ancho}px; height: ${ancho}px; border: 1px solid black; background-color: ${color}"></td>`)
+                }
+                tabla += '</td>'
+            }
+
+            document.write(tabla)
+        }
+    </script>
+</body>
+
+</html>

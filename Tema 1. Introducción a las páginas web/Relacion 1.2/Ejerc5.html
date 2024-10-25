@@ -1,0 +1,59 @@
+<!--Programa en JavaScript que consista en adivinar un número previamente
+introducido por teclado (jugador 1).
+El programa pedirá tantos números como intentos erróneos haga el jugador 2.
+Solamente terminará cuando el jugador 2 acierte. El programa dará pistas al jugador 2
+indicándole si su número es mayor o menor que el número a adivinar.-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejerc5</title>
+</head>
+
+<body>
+    <script>
+        function adivinarNumero() {
+            //Jugador 1. Pedimos al usuario un número.
+            const numeroAdivinar = parseInt(prompt("JUGADOR 1. Introduce un número del 1 al 20"));
+
+            //Verificamos errores. En este caso si no es un número, si es menor a 1 o mayor a 20 aparecerá un error
+            if (isNaN(numeroAdivinar) || numeroAdivinar < 1 || numeroAdivinar > 20) {
+                alert("ERROR. Introduce un número entre 1 y 20");
+                return; // Salimos de la función si el número es inválido
+            }
+
+            let intentos = 0;
+            let acertado = false;
+
+            // Si el Jugador 1 no ha acertado, aparecera el Jugador 2. Se le pedirá también un número
+            while (!acertado) {
+                const numJugador2 = parseInt(prompt("JUGADOR 2. Intente adivinar el número"));
+
+                //Verificamos si el número es válido. Mismo caso que el Jugador 1
+                if (isNaN(numJugador2) || numJugador2 < 1 || numJugador2 > 20) {
+                    alert("ERROR. Por favor, introduce un número entre 1 y 20");
+                    continue; //Seguimos pidiendo el número hasta que lo acierte
+                }
+
+                intentos++; //Aumentamos los intentos si el número introducido no es el número valido
+
+                //Ayudas al Jugador 2
+                if (numJugador2 < numeroAdivinar) {
+                    alert("¡CASI!, El número a adivinar es mayor. Inténtalo de nuevo");
+                } else if (numJugador2 > numeroAdivinar) {
+                    alert("¡CASI!, El número a adivinar es menor. Inténtelo de nuevo");
+                } else {
+                    alert(`¡ENHORABUENA! Jugador 2, has acertado el número ${numeroAdivinar} en ${intentos} intentos.`);
+                    acertado = true;
+                }
+            }
+        }
+
+        adivinarNumero();
+    </script>
+</body>
+
+</html>

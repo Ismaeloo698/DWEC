@@ -1,0 +1,47 @@
+<!--Modifica el ejerc anterior para que las columnas impares tengan un fondo negro 
+y las pares un fondo blanco-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejerc3</title>
+</head>
+
+<body>
+    <form>
+        <label for="columnas">Nº de columnas:</label><br>
+        <input type="text" name="columnas" id="columnas"><br><br>
+
+        <label for="alto">Alto:</label><br>
+        <input type="text" name="alto" id="alto"><br><br>
+
+        <label for="ancho">Ancho:</label><br>
+        <input type="text" name="ancho" id="ancho"><br><br>
+
+        <button type="button" onclick="generarTabla()">Generar tabla</button>
+    </form>
+
+    <script>
+        function generarTabla() {
+            const numColumnas = document.getElementById('columnas').value;
+            const alto = document.getElementById('alto').value;
+            const ancho = document.getElementById('ancho').value;
+
+            //Para no escribir varias veces document.write lo que hacemos es crear una variable tabla y la vamos concatenando
+            let tabla = '<h1>Tabla generada</h1>';
+            tabla += '<table><tr>';
+            for (let i = 0; i < numColumnas; i++) {
+                const color = (i % 2 == 0) ? 'black' : 'white'; //Si es par se selecciona el negro, si es impar el blanco
+                tabla += (`<td style = "height : ${alto}px; width : ${ancho}px; border: 1px solid black; background-color: ${color}"></td>`);
+            }
+            tabla += '</tr></table>'
+
+            document.write(tabla)
+        }
+    </script>
+</body>
+
+</html>
