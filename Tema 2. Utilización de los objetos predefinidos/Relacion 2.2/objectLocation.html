@@ -1,0 +1,40 @@
+<!--Utilizando el programa de contadorReversa.html, haz que al llegar a 0 
+se carge la página de google-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>objectLocation</title>
+</head>
+
+<body>
+    <h1>Contador Hacia Atrás</h1>
+    <div id="contador">60</div>
+
+    <script>
+        var tiempoRestante = 60;
+        var contadorElemento = document.getElementById('contador');
+
+        function actualizarContador() {
+            if (tiempoRestante > 0) {
+                tiempoRestante--;
+                //Actualizamos el texto del contador con el tiempo restante
+                contadorElemento.textContent = tiempoRestante;
+                //Por cada segundo, volvemos a llamar a la función
+                setTimeout(actualizarContador, 1000);
+            } else {
+                contadorElemento.textContent = "¡Se ha agotado el tiempo!";
+                //Cuando se acabe el tiempo redirigimos a google
+                window.location.href = "https://google.com";
+            }
+        }
+
+        //Una vez creada la función, inicialiamos el controlador
+        setTimeout(actualizarContador, 1000); 
+    </script>
+</body>
+
+</html>

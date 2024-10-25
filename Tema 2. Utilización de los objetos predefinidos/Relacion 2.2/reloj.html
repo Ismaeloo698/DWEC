@@ -1,0 +1,36 @@
+<!--A partir del objeto Date, sus métodos getHours, getMinutes y getSeconds, crea un programa que muestre la hora actual-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reloj</title>
+</head>
+
+<body>
+    <h1>Reloj</h1>
+    <p id="reloj"></p>
+
+    <script>
+        function reloj() {
+            //Obtenemos la hora actual
+            const ahora = new Date();
+            const horas = ahora.getHours();
+            const minutos = ahora.getMinutes();
+            const segundos = ahora.getSeconds();
+
+            //Formatemos la hora para que siempre muestre dos dígitos
+            const horaFormateada = String(horas).padStart(2, '0') + ":" + String(minutos).padStart(2, '0') + ":" + String(segundos).padStart(2, '0');
+
+            //Actualizamos el texto del reloj
+            document.getElementById('reloj').textContent = horaFormateada;
+        }
+
+        //Actualizamos el reloj cada segundo
+        setInterval(reloj, 1000);
+    </script>
+</body>
+
+</html>

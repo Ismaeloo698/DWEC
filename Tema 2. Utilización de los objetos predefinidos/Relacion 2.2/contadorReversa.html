@@ -1,0 +1,35 @@
+<!--Utilizando setTimeout(), setInterval() crea un contador hacia atrás
+de 60 segundos-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="author" content="Ismael Arguelles"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador Hacia Atrás</title>
+</head>
+<body>
+    <h1>Contador Hacia Atrás</h1>
+    <div id="contador">60</div>
+
+    <script>
+        var tiempoRestante = 60;
+        var contadorElemento = document.getElementById('contador');
+
+        function actualizarContador() {
+            if (tiempoRestante > 0) {
+                tiempoRestante--;
+                //Actualizamos el texto del contador con el tiempo restante
+                contadorElemento.textContent = tiempoRestante;
+                //Por cada segundo, volvemos a llamar a la función
+                setTimeout(actualizarContador, 1000);
+            } else {
+                contadorElemento.textContent = "¡Se ha agotado el tiempo!";
+            }
+        }
+
+        //Una vez creada la función, inicialiamos el controlador
+        setTimeout(actualizarContador, 1000); 
+    </script>
+</body>
+</html>
