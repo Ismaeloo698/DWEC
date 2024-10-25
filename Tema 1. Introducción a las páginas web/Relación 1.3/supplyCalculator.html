@@ -1,0 +1,31 @@
+<!--Programa que calcula las provisiones de algo a partir de tu edad y cantidad diaria-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>supplyCalculator</title>
+    <script src="relacion1-3.js"></script>
+</head>
+
+<body>
+    <h2>Suministro de por vida</h2>
+    <form>
+        <label for="edad">Edad</label><br>
+        <input type="text" name="edad" id="edad"><br><br>
+
+        <label for="edadMaxima">Edad máxima</label><br>
+        <input type="text" name="edadMaxima" id="edadMaxima"><br><br>
+
+        <label for="cantidadDiaria">Cantidad diaria</label><br>
+        <input type="text" name="cantidadDiaria" id="cantidadDiaria"><br><br>
+
+        <button type="button" onclick="supplyCalculator()">Calcular provisiones</button>
+
+        <p id="totalProvision"></p>
+    </form>
+</body>
+
+</html>
