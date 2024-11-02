@@ -1,0 +1,103 @@
+<!--Crea las siguientes funciones y llámalas para mostrar su funcionamiento:
+1. Devuelve una cadena invertida dada por el usuario.
+2. Devuelve invertidas las palabras contenidas en la cadena.
+3. Una cadena de carácteres dada devuelve la longitud de la palabra más larga en ella contenida.
+4. Una cadena de carácteres y un valor numérico(i), devuelve el número de palabras cuya longitud es mayor que i
+5. Formatea correctamente la cadena pasada, de tal forma que sólo aparece en mayúscula la primera letra y el resto en minúscula-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejerc1</title>
+</head>
+
+<body>
+    <script>
+        function invierteCadena(cad_arg) {
+            return cad_arg.split("").reverse().join(""); //Separa, invierte y junta las cadenas
+        }
+
+        function inviertePalabras(cad_arg) {
+            return cad_arg.split("").map((palabra) => palabra.split("").reverse().join("")).join(" "); //Separa, invierte y junta las palabras
+        }
+
+        function encuentraPalabraMasLarga(cad_arg) {
+            //Separamos las palabras pasadas por el usuario
+            const palabras = cad_arg.split(" ");
+            let palabraMasLarga = "";
+
+            for (let palabra of palabras) {
+                if (palabra.length > palabraMasLarga.length) {
+                    palabraMasLarga = palabra;
+                }
+            }
+            return palabraMasLarga;
+        }
+
+        function filtraPalabrasMasLargas(cad_arg, i) {
+            //Separamos las palabras pasadas por el usuario
+            const palabras = cad_arg.split(" ");
+            let contador = "";
+
+            //En el caso de que la palabra introducida sea mayor que i, se incrementa el contador
+            for (let palabra of palabras) {
+                if (palabra.length > i) {
+                    contador++;
+                }
+            }
+
+            return contador;
+        }
+
+        function cadenaBienFormateada(cad_arg) {
+            //.slice() coje una parte del array. En este caso, la primera letra y las demás en minúscula.
+            return cad_arg[0].toUpperCase() + cad_arg.slice(1).toLowerCase();
+        }
+        
+        function ejecutarFuncion(funcion) {
+            const cadena = document.getElementById("cadena").value;
+
+            let resultado = "";
+
+            switch (funcion) {
+                case "invierteCadena":
+                    resultado = "La cadena invertida es: " + invierteCadena(cadena);
+                    break;
+                case "inviertePalabras":
+                    resultado = "La paalabra invertida es: " + inviertePalabras(cadena);
+                    break;
+                case "encuentraPalabraMasLarga":
+                    resultado = "La palabra más larga es: " + encuentraPalabraMasLarga(cadena);
+                    break;
+                case "filtraPalabrasMasLargas":
+                    let longitud = parseInt(prompt("Introduce la longitud mínima de la palabra a filtrar: "));
+                    resultado = "Número de palabras con longitud mayor que " + longitud + " son: " + filtraPalabrasMasLargas(cadena, longitud);
+                    break;
+                case "cadenaBienFormateada":
+                    resultado = "La cadena formateada es: " + cadenaBienFormateada(cadena);
+                    break;
+            }
+
+            //Mostramos el resultado en el HTML con el id "resultado"
+            document.getElementById('resultado').innerText = resultado;
+        }
+    </script>
+
+    <h1>Funciones de cadenas</h1>
+    <label for="cadena">Introduce una cadena de texto:</label>
+    <input type="text" name="cadena" id="cadena"><br><br>
+
+    <button type="button" onclick="ejecutarFuncion('invierteCadena')">Invertir cadenas</button>
+    <button type="button" onclick="ejecutarFuncion('inviertePalabras')">Invertir palabras</button>
+    <button type="button" onclick="ejecutarFuncion('encuentraPalabraMasLarga')">Palabra más larga</button>
+    <button type="button" onclick="ejecutarFuncion('filtraPalabrasMasLargas')">Filtrar palabra por longitud</button>
+    <button type="button" onclick="ejecutarFuncion('cadenaBienFormateada')">Cadena formateada</button><br><br>
+
+    <h3>Resultados</h3>
+    <p id="resultado"></p>
+</body>
+
+</html>

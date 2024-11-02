@@ -1,0 +1,31 @@
+<!--Desarrolla una función que tomando como entrada una cadena de texto 
+nos devuelva si es o no palíndromo-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejerc7</title>
+</head>
+
+<body>
+    <script>
+        function palindromo(cadena) {
+            const cadenaInvertida = cadena.split('').reverse().join('');
+            if (cadena === cadenaInvertida) {
+                console.log('Es palíndromo')
+            } else {
+                console.log('No es palíndromo')
+            }
+        }
+
+        //Ejemplo
+        const texto = "reconocer";
+        const resultado = palindromo(texto);
+        console.log(resultado);
+    </script>
+</body>
+
+</html>

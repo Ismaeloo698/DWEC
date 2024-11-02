@@ -1,0 +1,35 @@
+<!--Función que muestre información sobre una cadena de texto que se le pasa como argumento.
+A partir de la cadena que se le pasa, la función determina si esa cadena está formateada sólo por mayúsculas,
+sólo por minúsculas o por una mezcla de ambas-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejerc2</title>
+</head>
+
+<body>
+    <script>
+        function analizarCadena() {
+            let cadena = document.getElementById("cadena").value;
+            if (cadena == cadena.toUpperCase()) {
+                alert("La cadena contiene solo mayúsculas");
+            } else if (cadena == cadena.toLowerCase()) {
+                alert("La cadena contiene solo minúsculas");
+            } else {
+                alert("La cadena contiene mayúsculas y minúsculas");
+            }
+        }
+    </script>
+
+    <h1>Analizador de cadenas</h1>
+    <label for="cadena">Introduce una cadena de texto: </label>
+    <input type="text" name="cadena" id="cadena"><br><br>
+
+    <button type="button" onclick="analizarCadena()">Analizar cadena</button>
+</body>
+
+</html>

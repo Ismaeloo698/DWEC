@@ -1,0 +1,27 @@
+<!--Función que tomando como entrada una cadena de texto, sea capaz de 
+contabilizar el número de palabras. Ten en cuenta que entre dos palabras puede 
+haber más de 1 en blanco, e incluso pueden aparecer al principio o final de esta-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejerc8</title>
+</head>
+<body>
+    <script>
+        function contarCadena(cadena) {
+            //Eliminamos los espacios en blanco al principio y al final de la cadena y dividimos por espacios múltiples	
+            const palabras = cadena.trim().split(/\s+/);
+
+            //Si la cadena está vacía una vez eliminados los espacios en blanco, devolvemos 0
+            return palabras[0] === '' ? 0 : palabras.length;
+        }
+
+        //Ejemplo
+        const cadena = '    Hola,    mi nombre es    Ismael    ';
+        console.log(contarCadena(cadena));
+    </script>
+</body>
+</html>
