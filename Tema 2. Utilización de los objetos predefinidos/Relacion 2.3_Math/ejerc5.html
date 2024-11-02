@@ -1,0 +1,35 @@
+<!--Desarrolla una función que elimine los carácteres repetidos de una 
+cadena de texto, incluido los blancos-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Caracteres Repetidos</title>
+</head>
+<body>  
+    <script>
+        function eliminarCaracteresRepetidos(cadena) {
+            //Eliminamos todos los espacios en blanco usando .replace
+            cadena = cadena.replace(/\s+/g, '');
+
+            let resultado = '';
+            for (let i = 0; i < cadena.length; i++) {
+                const char = cadena[i];
+                //Añadimos el carácter a resultado, si no existe en él
+                if (!resultado.includes(char)) {
+                    resultado += char;
+                }
+            }
+            return resultado;
+        }
+
+        //Ejemplo
+        const texto = "La mejor comida es la pizza carbonara";
+        const resultado = eliminarCaracteresRepetidos(texto);
+
+        console.log(resultado);
+    </script>
+</body>
+</html>
+
