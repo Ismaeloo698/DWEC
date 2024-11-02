@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+
+<body>
+    <h1>Ecuación de segundo grado</h1>
+    <p>Escribe los tres coeficientes</p>
+    <form>
+        <label for="a">Coeficiente a:</label>
+        <input type="text" name="a" id="a"><br><br>
+
+        <label for="b">Coeficiente b:</label>
+        <input type="text" name="b" id="b"><br><br>
+
+        <label for="c">Coeficiente c:</label>
+        <input type="text" name="c" id="c"><br><br>
+
+        <button type="button" onclick="ecuacionSegundoGrado()">Calcular ecuación</button>
+        <p id="soluciones"></p>
+    </form>
+    <script>
+        function ecuacionSegundoGrado() {
+            var a = parseFloat(document.getElementById('a').value);
+            var b = parseFloat(document.getElementById('b').value);
+            var c = parseFloat(document.getElementById('c').value);
+
+            var discriminante = Math.pow(b, 2) - 4 * a * c;
+
+            //No se puede calcular la raíz cuadrada de un número negativo
+            if (discriminante < 0) {
+                document.getElementById('soluciones').innerHTML = `La ecuación no tiene soluciones reales`;
+            } else {
+                var x1 = (-b + Math.sqrt(discriminante)) / (2 * a);
+                var x2 = (-b - Math.sqrt(discriminante)) / (2 * a);
+
+                document.getElementById('soluciones').innerHTML = `Las soluciones de la ecuación ${a}x^2 + ${b}x + ${c} son ${x1} y ${x2}`;
+            }
+        }
+    </script>
+</body>
+
+</html>

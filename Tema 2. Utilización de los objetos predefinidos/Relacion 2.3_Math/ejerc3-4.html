@@ -1,0 +1,46 @@
+<!--Programa que calcule la hipotenusa de un triángulo rectángulo -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejerc3</title>
+</head>
+
+<body>
+    <h1>Hipotenusa</h1>
+    <p>Introduce la longitud de los dos catetos</p>
+    <form id="hipotenusaForm">
+        <label for="cateto1">Primer cateto:</label>
+        <input type="text" name="cateto1" id="cateto1"><br><br>
+
+        <label for="cateto2">Segundo cateto:</label>
+        <input type="text" name="cateto2" id="cateto2"><br><br>
+
+        <button type="button" onclick="hipotenusa()">Calcular hipotenusa</button>
+        <p id="resultado"></p>
+    </form>
+    <script>
+        function hipotenusa() {
+            let cateto1 = document.getElementById('cateto1').value;
+            let cateto2 = document.getElementById('cateto2').value;
+
+            //HIPOTENUSA = √(cateto1^2 + cateto2^2)
+            let hipotenusa = Math.sqrt((Math.pow(cateto1, 2) + (Math.pow(cateto2, 2)))).toFixed(2);
+            document.getElementById('resultado').innerHTML = `La hipotenusa del cateto ${cateto1} y ${cateto2} es ${hipotenusa}`;
+
+            //Preguntamos al usuario si quiere realizar otro cálculo
+            setTimeout(() => {
+                let continuar = confirm("¿Quieres realizar otro cálculo?");
+                if (continuar) {
+                    document.getElementById('hipotenusaForm').reset();
+                    document.getElementById('resultado').innerHTML = ""; // Limpia el resultado anterior
+                }
+            }, 500);
+        }
+    </script>
+</body>
+
+</html>

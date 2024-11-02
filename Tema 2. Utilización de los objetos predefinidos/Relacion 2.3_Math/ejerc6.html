@@ -1,0 +1,36 @@
+<!--Programa que calcule potencias-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejerc6</title>
+</head>
+
+<body>
+    <h1>Calcular potencias</h1>
+    <p>Introduce la base y el exponente</p>
+    <form>
+        <label for="base">Base:</label>
+        <input type="text" name="base" id="base"><br><br>
+
+        <label for="exponente">Exponente:</label>
+        <input type="text" name="exponente" id="exponente"><br><br>
+
+        <button type="button" onclick="potencia()">Calcular potencia</button>
+        <p id="resultado"></p>
+    </form>
+    <script>
+        function potencia() {
+            let base = parseFloat(document.getElementById("base").value);
+            let exponente = parseFloat(document.getElementById("exponente").value);
+
+            let potencia = Math.pow(base, exponente);
+            document.getElementById('resultado').innerHTML = `El resultado de ${base} elevado a ${exponente} es ${potencia}`;
+        }
+    </script>
+</body>
+
+</html>

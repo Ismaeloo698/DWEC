@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejerc8</title>
+</head>
+
+<body>
+    <h1>Imagen aleatoria</h1>
+    <img id="imagenAleatoria" src="" alt="imagenAleatoria" style="max-width: 500px;">
+    <script>
+        //Creamos un array para guardar las imágenes
+        const imagenes = [
+            'Relación 2.3_Math/img1.jpg',
+            'Relación 2.3_Math/img2.jpeg',
+            'Relación 2.3_Math/img3.jpg',
+        ];
+
+        const imagenAleatoria = Math.floor(Math.random() * imagenes.length);
+
+        const resultadoImagen = document.getElementById('imagenAleatoria');
+        resultadoImagen.src = imagenes[imagenAleatoria];
+    </script>
+</body>
+
+</html>

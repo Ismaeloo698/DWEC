@@ -1,0 +1,52 @@
+<!--Programa que le pida al usuario un ángulo y calcule su seno, coseno y tangente-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejerc2</title>
+</head>
+
+<body>
+    <h1>Razones trigonometricas</h1>
+    <p>Introduce un ángulo para calcular sus razones trigonometricas (seno, coseno, tangente)</p>
+    <form>
+        <label for="angulo">Ángulo:</label>
+        <input type="text" name="angulo" id="angulo">
+
+        <button type="button" onclick="razonesTrigonometricas()">Calcular razones trigonometricas</button>
+        <p id="resultado"></p>
+    </form>
+    <script>
+        function razonesTrigonometricas() {
+            let anguloGrados = parseFloat(document.getElementById('angulo').value);
+
+            //En el caso de que el usuario introduzca un ángulo no válido
+            if (isNaN(anguloGrados) || anguloGrados < 0 || anguloGrados > 360) {
+                alert("ERROR. Introduzca un ángulo válido (0º-360º)");
+                return;
+            }
+
+            //Pasamos el ángulo de grados a radianes
+            let anguloRadianes = (anguloGrados * Math.PI) / 180;
+
+            let senoAngulo = Math.sin(anguloRadianes).toFixed(2); //Redondeamos dos decimas
+            let cosenoAngulo = Math.cos(anguloRadianes).toFixed(2);
+            let tangenteAngulo = Math.tan(anguloRadianes);
+
+            //Comprobamos si el coseno es casi 0 para ángulos críticos (90º y 270º)
+            if (Math.abs(cosenoAngulo) < 0.0001) {
+                tangenteAngulo = "Indefinida";
+            } else {
+                tangenteAngulo = tangenteAngulo.toFixed(2);
+            }
+
+            //Mostramos los resultados
+            document.getElementById('resultado').innerHTML = `El seno de ${anguloGrados} grados es: ${senoAngulo}<br>El coseno de ${anguloGrados} grados es: ${cosenoAngulo}<br>La tangente de ${anguloGrados} grados es: ${tangenteAngulo}`
+        }       
+    </script>
+</body>
+
+</html>

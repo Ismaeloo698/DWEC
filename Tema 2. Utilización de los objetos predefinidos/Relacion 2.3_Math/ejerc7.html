@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejerc6</title>
+</head>
+
+<body>
+    <h2>Tabla de Valores Seno</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Seno</th>
+            </tr>
+        </thead>
+        <tbody id="tabla-seno">
+        </tbody>
+    </table>
+
+    <script>
+        const tabla = document.getElementById("tabla-seno");
+
+        for (let i = 0; i <= 30; i++) {
+            const fila = document.createElement("tr");
+
+            const columnaNumero = document.createElement("td");
+            columnaNumero.textContent = i;
+
+            const columnaSeno = document.createElement("td");
+            columnaSeno.textContent = Math.sin(i).toFixed(2);
+
+            fila.appendChild(columnaNumero);
+            fila.appendChild(columnaSeno);
+            tabla.appendChild(fila);
+        }
+    </script>
+</body>
+
+</html>

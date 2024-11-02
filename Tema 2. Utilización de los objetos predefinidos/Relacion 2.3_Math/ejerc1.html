@@ -1,0 +1,58 @@
+<!--Página en la que se muestre:
+1. Número aleatorio entre 0 y 1
+2. Número aleatorio entre 100 y 200
+3. Pide dos valores al usuario y genera un número aleatorio entre esos dos valores-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="author" content="Ismael Arguelles">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejerc1</title>
+</head>
+
+<body>
+    <h1>Número aleatorio</h1>
+    <p>Escribe dos números para generar un número aleatorio</p>
+    <form>
+        <label for="num1">Número 1:</label>
+        <input type="text" name="num1" id="num1"><br><br>
+
+        <label for="num2">Número 2:</label>
+        <input type="text" name="num2" id="num2"><br><br>
+
+        <button type="button" onclick="aleatorioUsuario()">Generar número aleatorio</button>
+    </form>
+    <script>
+        function aleatorio() {
+            let numAleatorio = Math.random();
+            let numAleatorioRedondeado = parseFloat(numAleatorio.toFixed(2));
+            return "Número aleatorio entre 0-1:" + numAleatorioRedondeado;
+        }
+        console.log(aleatorio());
+
+        function aleatorio2() {
+            let numAleatorio2 = Math.random() * (200 - 100) + 100;;
+            let numAleatorioRedondeado2 = parseFloat(numAleatorio2.toFixed(2));
+            return "Número aleatorio entre 100-200:" + numAleatorioRedondeado2;
+        }
+        console.log(aleatorio2());
+
+        function aleatorioUsuario() {
+            let num1 = parseFloat(document.getElementById('num1').value);
+            let num2 = parseFloat(document.getElementById('num2').value);
+
+            //Nos aseguramos que num1 sea mayor que num2
+            let min = Math.min(num1, num2);
+            let max = Math.max(num1, num2);
+
+            let aleatorio = Math.random() * (max - min) + min;
+            let aleatorioRedondeado = parseFloat(aleatorio.toFixed(2));
+            console.log("Número aleatorio entre los valores del usuario: ", aleatorioRedondeado);
+            return aleatorioRedondeado;
+        }
+    </script>
+</body>
+
+</html>
